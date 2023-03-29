@@ -1,0 +1,6 @@
+steps:
+- name: "bash"
+  args: ["chmod", "+x", "./script.sh"]
+- name: "gcr.io/cloud-builders/gcloud"
+  entrypoint: "bash"
+  args: ["-c", "./script.sh $_PROJECT_ID"]

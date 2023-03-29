@@ -1,0 +1,72 @@
+schema_version: 2
+entity_type: Lab
+id: outer-loop
+default_locale: en
+duration: 60
+level: introductory
+
+environment:
+  resources:
+  - type: gcp_project
+    id: project_1
+    variant: gcpfree
+    startup_script:
+      type: qwiklabs
+      path: project_1_startup
+      custom_properties:
+      - key: project_2_id
+        reference: project_2.project_id
+      - key: project_3_id
+        reference: project_3.project_id
+#  - type: gcp_project
+#    id: project_2
+#    variant: gcpfree
+#    startup_script:
+#      type:  qwiklabs
+#      path: project_2_startup
+#      custom_properties:
+#      - key: project_1_id
+#        reference: project_1.project_id
+#      - key: project_3_id
+#        reference: project_3.project_id
+#  - type: gcp_project
+#    id: project_3
+#    variant: gcpfree
+#    startup_script:
+#      type:  qwiklabs
+#      path: project_3_startup
+#      custom_properties:
+#      - key: project_1_id
+#        reference: project_1.project_id
+#      - key: project_2_id
+#        reference: project_2.project_id
+  student_visible_outputs:
+  - label:
+      locales:
+        en: "Open GCP Console"
+    reference: project_1.console_url
+  - label:
+      locales:
+        en: "Username"
+    reference: user_1.username
+  - label:
+      locales:
+        en: "Password"
+    reference: user_1.password
+#  - label:
+#      locales:
+#        en: "Platform project"
+#    reference: project_2.console_url
+#  - label:
+#      locales:
+#        en: "Application Infra project"
+#    reference: project_3.console_url
+
+description:
+  locales:
+    en: Lab Description
+instruction:
+  type: html
+  uri:
+    locales:
+      en: en.html
